@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>蘇子涵｜個人介紹頁</title>
+  <meta
+    name="description"
+    content="蘇子涵的個人介紹頁。以清新、安靜、留白的方式，整理關於自己、興趣與未來方向。"
+  />
+  <style>
+    :root {
+      --bg: #f7faf8;
+      --bg-soft: #f1f5f2;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #2d3430;
+      --muted: #67716b;
+      --line: rgba(113, 131, 119, 0.14);
+      --primary: #8fa295;
+      --primary-deep: #6b7d72;
+      --accent: #e5ece7;
+      --white: #ffffff;
+      --shadow: 0 20px 50px rgba(100, 118, 106, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, #fbfdfb 0%, #f5f8f6 38%, #f7faf8 100%);
+      line-height: 1.85;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(251, 253, 251, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(107, 125, 114, 0.08);
+    }
+
+    .header-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--primary-deep);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--primary-deep);
+    }
+
+    .hero {
+      padding: 84px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.28fr 0.92fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side,
+    .section-card,
+    .cta-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-main {
+      padding: 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary-deep);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.16;
+      letter-spacing: 0.03em;
+      font-weight: 800;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 18px;
+      font-size: 1.08rem;
+      color: var(--primary-deep);
+      font-weight: 600;
+    }
+
+    .hero-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(111, 141, 114, 0.12);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: var(--primary-deep);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--primary-deep);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      background: #fff;
+    }
+
+    .hero-side {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .avatar-wrap {
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #f7faf8 0%, #eef3ef 100%);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .avatar-placeholder {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.9);
+      color: var(--primary-deep);
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      box-shadow: 0 14px 34px rgba(100, 118, 106, 0.08);
+      border: 1px solid rgba(255,255,255,0.94);
+    }
+
+    .avatar-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .mini-info {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-item {
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.74);
+      border: 1px solid var(--line);
+    }
+
+    .mini-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .mini-value {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    main {
+      padding-bottom: 58px;
+    }
+
+    .section {
+      padding: 20px 0;
+    }
+
+    .section-card {
+      padding: 36px;
+    }
+
+    .section-head {
+      margin-bottom: 20px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--primary-deep);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2.18rem);
+      line-height: 1.24;
+      font-weight: 800;
+    }
+
+    .section p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .soft-block {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.62);
+      border: 1px solid var(--line);
+    }
+
+    .soft-block h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .soft-block p {
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary-deep);
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: 1px solid rgba(107, 125, 114, 0.08);
+    }
+
+    .quote-box {
+      margin-top: 18px;
+      padding: 20px 22px;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 16px 16px 0;
+      background: rgba(255,255,255,0.58);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cta-card {
+      padding: 36px;
+      text-align: center;
+    }
+
+    .cta-card p {
+      max-width: 720px;
+      margin: 12px auto 0;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 30px 0 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .section-card,
+      .cta-card {
+        padding: 26px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .section-card,
+      .cta-card {
+        padding: 22px;
+        border-radius: 22px;
+      }
+
+      .avatar-wrap {
+        min-height: 240px;
+      }
+
+      .avatar-placeholder {
+        width: 128px;
+        height: 128px;
+        font-size: 2rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">SU ZI HAN</a>
+      <nav class="nav">
+        <a href="#about">關於我</a>
+        <a href="#academic">學習背景</a>
+        <a href="#direction">發展方向</a>
+        <a href="#traits">個人特質</a>
+        <a href="#interests">興趣延伸</a>
+        <a href="#contact">聯絡我</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <div class="eyebrow">個人介紹頁 · Personal Profile</div>
+          <h1>蘇子涵</h1>
+          <p class="hero-subtitle">
+            把喜歡的事慢慢整理，把想走的路慢慢走清楚。
+          </p>
+          <p class="hero-text">
+            這裡是一個關於我的簡單頁面。比起急著定義自己，我更傾向在學習、生活與探索裡，
+            慢慢整理出真正感興趣的方向。現階段的我，對資訊、管理，以及資料整理與分析這類
+            需要耐心與思考的事特別有感，也希望在一步一步累積中，成為更穩定、更清楚自己的人。
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://www.instagram.com/zihan_1123_?igsh=cjd6ZnFlcXB2NzV4&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              前往 IG 認識我
+            </a>
+            <a class="btn btn-secondary" href="#about">
+              了解更多
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="avatar-wrap">
+            <img
+              id="profileImage"
+              class="avatar-image"
+              alt="蘇子涵個人照片"
+              data-photo-url=""
+            />
+            <div id="avatarPlaceholder" class="avatar-placeholder">SZH</div>
+          </div>
+
+          <div class="mini-info">
+            <div class="mini-item">
+              <div class="mini-label">名字</div>
+              <div class="mini-value">蘇子涵</div>
+            </div>
+            <div class="mini-item">
+              <div class="mini-label">目前關注</div>
+              <div class="mini-value">資訊與管理結合、資料分析、數據整理</div>
+            </div>
+            <div class="mini-item">
+              <div class="mini-label">關鍵印象</div>
+              <div class="mini-value">安靜、穩定、願意學習、重視完成度</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">About Me</div>
+            <h2>關於我</h2>
+          </div>
+          <p>
+            你好，我是蘇子涵。這個網站是我留給世界的一個小小入口，
+            用簡單、安靜的方式整理自己，也讓別人更快認識我。現在的我仍在持續探索，
+            但對資訊相關領域有明確興趣，也在一步一步理解自己真正喜歡的方向與節奏。
+          </p>
+          <div class="quote-box">
+            我想慢慢成為一個有想法、有溫度，也有能力把事情整理清楚的人。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="academic" class="section">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Academic Background</div>
+            <h2>學習背景</h2>
+          </div>
+          <div class="grid-2">
+            <div class="soft-block">
+              <h3>目前狀態</h3>
+              <p>
+                我目前就讀東海大學資訊管理系，在學習中慢慢建立自己的理解方式，
+                也持續接觸資訊與管理之間的連結。
+              </p>
+            </div>
+            <div class="soft-block">
+              <h3>學習關注</h3>
+              <p>
+                我不只在意技術本身，也在意資訊如何幫助整理問題、提升效率，
+                並在真實情境中發揮實際價值。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="direction" class="section">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Direction</div>
+            <h2>未來發展方向</h2>
+          </div>
+          <p>
+            目前我仍在探索未來更適合自己的方向，但整體上，我對資訊領域有高度興趣，
+            尤其是資訊與管理結合的工作內容，以及資料分析、數據整理這類需要邏輯與耐心的方向。
+            我希望未來能持續培養自己的問題整理能力、數位工具應用能力與溝通協作能力，
+            讓自己成為能結合科技思維與實際需求的人。
+          </p>
+          <div class="tags">
+            <span class="tag">資訊與管理結合</span>
+            <span class="tag">資料分析</span>
+            <span class="tag">數據整理</span>
+            <span class="tag">數位工具應用</span>
+            <span class="tag">持續探索成長</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="traits" class="section">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Traits</div>
+            <h2>個人特質</h2>
+          </div>
+          <div class="grid-2">
+            <div class="soft-block">
+              <h3>責任感與完成度</h3>
+              <p>
+                面對交付的事情，我會希望先理解清楚，再穩定地把它完成。
+                我重視細節，也重視整體品質，希望做出來的結果是完整而有條理的。
+              </p>
+            </div>
+            <div class="soft-block">
+              <h3>溝通與配合</h3>
+              <p>
+                我認為合作不只是把事情做完，更重要的是能夠溝通、理解彼此需求，
+                並在過程中保持良好的配合與回應。
+              </p>
+            </div>
+            <div class="soft-block">
+              <h3>願意學習</h3>
+              <p>
+                對我來說，現在的階段最重要的不是急著定義自己，而是持續保持學習意願，
+                一步一步累積能力與視野。
+              </p>
+            </div>
+            <div class="soft-block">
+              <h3>穩定成長</h3>
+              <p>
+                我希望自己在每一次學習與經驗中，都能比之前更清楚方向、更懂得整理問題，
+                也更能把事情做好。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests" class="section">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Extended Interests</div>
+            <h2>興趣延伸</h2>
+          </div>
+          <div class="grid-2">
+            <div class="soft-block">
+              <h3>閱讀 / 小說</h3>
+              <p>
+                我喜歡透過閱讀與小說進入不同的故事與思考方式。這讓我更容易觀察細節、
+                理解情境，也讓我在表達與感受力上有更多累積。
+              </p>
+            </div>
+            <div class="soft-block">
+              <h3>烘焙 / 煮飯</h3>
+              <p>
+                烘焙與煮飯對我來說不只是興趣，也是一種節奏與專注的練習。
+                在準備與製作的過程中，我會更在意步驟、細節與完成後的整體感受。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="section-kicker">Contact</div>
+          <h2>歡迎透過 IG 進一步認識我</h2>
+          <p>
+            這個頁面整理了關於我的一些片段。若你想更進一步認識我，
+            歡迎前往我的 IG。
+          </p>
+          <div class="hero-actions" style="justify-content:center;">
+            <a
+              class="btn btn-primary"
+              href="https://www.instagram.com/zihan_1123_?igsh=cjd6ZnFlcXB2NzV4&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @zihan_1123_
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> 蘇子涵 · Personal Profile Website
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const profileImage = document.getElementById("profileImage");
+    const avatarPlaceholder = document.getElementById("avatarPlaceholder");
+    const photoUrl = profileImage.dataset.photoUrl.trim();
+
+    if (photoUrl) {
+      profileImage.src = photoUrl;
+      profileImage.style.display = "block";
+      avatarPlaceholder.style.display = "none";
+    }
+  </script>
+</body>
+</html>
